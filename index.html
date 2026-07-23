@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SisterClub</title>
+  <style>
+    :root{--ink:#25322f;--muted:#65726e;--paper:#fbf8f1;--leaf:#d9ead4;--leaf-dark:#6e9670;--lady:#eedce7;--lady-dark:#a66a89;--line:#9ab09a;--card:#fffdf8}*{box-sizing:border-box}body{margin:0;min-height:100vh;background:linear-gradient(155deg,#fbf8f1,#f1f6ef);color:var(--ink);font:16px system-ui,-apple-system,"Segoe UI",sans-serif}main{max-width:1040px;margin:auto;padding:28px 18px 44px}.brand{text-align:center}.brand h1{font-family:Georgia,serif;font-size:clamp(2.5rem,7vw,4.4rem);line-height:1;margin:0;color:#365a3a}.brand p{margin:.6rem 0 1.6rem;color:var(--muted)}.tree{position:relative;max-width:900px;margin:auto;padding-top:22px}.trunk{position:absolute;top:0;bottom:0;left:50%;width:7px;transform:translateX(-50%);border-radius:8px;background:linear-gradient(#704d35,#9b704c)}.branches{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:76px}.branch{position:relative;padding:10px 0 0}.branch::before{content:"";position:absolute;top:22px;width:42px;height:5px;background:var(--line);border-radius:8px}.gal::before{right:-39px}.lady::before{left:-39px}.branch h2{margin:0 0 20px;font-family:Georgia,serif;font-size:2rem;text-align:center;text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:7px}.gal h2{color:#527c58}.lady h2{color:#94617c}.leaves{display:grid;gap:13px}.leaf{border:1px solid #c9d9c5;border-radius:18px;padding:17px 20px;text-align:left;color:var(--ink);background:var(--leaf);font:inherit;font-size:1.1rem;font-weight:750;cursor:pointer;box-shadow:0 4px 0 rgba(37,50,47,.06);transition:transform .15s,box-shadow .15s}.leaf:hover,.leaf:focus-visible{transform:translateY(-2px);box-shadow:0 7px 0 rgba(37,50,47,.1);outline:3px solid #abc9a9;outline-offset:2px}.lady .leaf{background:var(--lady);border-color:#e4c6d6}.lady .leaf:hover,.lady .leaf:focus-visible{outline-color:#dba4bf}.leaf small{display:block;margin-top:4px;color:#55645e;font-size:.83rem;font-weight:500}.content{max-width:780px;margin:12px auto 0}.back{border:0;background:transparent;color:#476f4d;font:inherit;font-weight:750;cursor:pointer;padding:6px 0}.community{background:var(--card);border:1px solid #e2ded3;border-radius:22px;padding:clamp(20px,5vw,38px);box-shadow:0 12px 36px rgba(67,76,56,.09)}.tag{display:inline-block;border-radius:99px;padding:5px 10px;font-size:.8rem;font-weight:800;background:var(--leaf);color:#365a3a}.community h2{font-family:Georgia,serif;font-size:clamp(2rem,5vw,3.2rem);margin:12px 0 6px}.community p{line-height:1.5;color:#4d5b55}.items{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:24px}.item{padding:16px;border-radius:14px;background:#f7f5ef}.item h3{margin:0 0 7px;font-size:1rem}.item p{margin:0;font-size:.92rem}.join{margin-top:22px;border:0;border-radius:12px;padding:12px 16px;background:#456e4b;color:white;font:inherit;font-weight:800;cursor:pointer}.join:hover{background:#365a3a}@media(max-width:640px){main{padding:22px 14px}.trunk{display:none}.branches{grid-template-columns:1fr;gap:32px}.branch::before{display:none}.branch h2{text-align:left}.items{grid-template-columns:1fr}.tree{padding-top:0}}
+  </style>
+</head>
+<body>
+  <main>
+    <section id="home">
+      <header class="brand"><h1>SisterClub</h1><p>Find your people, share what matters, and do life together.</p></header>
+      <div class="tree">
+        <div class="trunk" aria-hidden="true"></div>
+        <div class="branches">
+          <section class="branch gal" aria-labelledby="gal-title"><h2 id="gal-title">GalPal</h2><div class="leaves" id="gal-leaves"></div></section>
+          <section class="branch lady" aria-labelledby="lady-title"><h2 id="lady-title">LadyPal</h2><div class="leaves" id="lady-leaves"></div></section>
+        </div>
+      </div>
+    </section>
+    <section id="community-view" class="content" hidden></section>
+  </main>
+  <script>
+    const communities = {
+      GirlTalk:{side:'GalPal',hint:'Casual conversations',description:'A warm place for everyday stories, questions, and conversations with other women.',event:'Tonight · 7:00 PM · “What is making you happy lately?”',post:'Maya: “What is one small win you had this week?”',tag:'Conversation'},
+      SchoolMe:{side:'GalPal',hint:'Learning and study support',description:'Trade study tips, find accountability partners, and celebrate progress toward your next goal.',event:'Thursday · 6:30 PM · Study sprint and goal check-in',post:'Ari: “Anyone else preparing for an exam or certification?”',tag:'Learning'},
+      CatFight:{side:'GalPal',hint:'Friendly debate',description:'Share a hot opinion, disagree respectfully, and keep the conversation kind.',event:'Friday · 8:00 PM · “Are group trips actually fun?”',post:'Nia: “What harmless opinion will you defend forever?”',tag:'Friendly debate'},
+      StyleSwap:{side:'GalPal',hint:'Style and creativity',description:'Exchange outfit ideas, beauty tips, creative projects, and inspiration without the pressure.',event:'Saturday · 2:00 PM · Closet refresh circle',post:'Sam: “Show us a colour combination you are loving right now.”',tag:'Style'},
+      MeetUp:{side:'GalPal',hint:'Local plans and outings',description:'Find friendly small-group activities, from coffee walks to art nights and weekend plans.',event:'Sunday · 11:00 AM · Park walk and iced coffee',post:'Jo: “Who wants to try a new brunch spot this month?”',tag:'Activities'},
+      EarPal:{side:'LadyPal',hint:'A listening space',description:'A gentle, supportive place to be heard, offer encouragement, and share life experience.',event:'Tonight · 6:00 PM · Open listening circle',post:'Leah: “What is something you wish people understood about you?”',tag:'Support'},
+      Businessy:{side:'LadyPal',hint:'Work and business goals',description:'Talk careers, job changes, entrepreneurship, leadership, and practical next steps.',event:'Wednesday · 7:00 PM · Small-business idea exchange',post:'Rina: “What professional goal are you working toward?”',tag:'Work'},
+      HotTakes:{side:'LadyPal',hint:'Opinions and respectful debate',description:'Bring a topic, hear new perspectives, and enjoy a lively conversation with good boundaries.',event:'Friday · 6:30 PM · “Is it ever okay to ghost?”',post:'Dana: “What topic could you talk about for an hour?”',tag:'Discussion'},
+      FashionUp:{side:'LadyPal',hint:'Personal style',description:'Explore style at every stage of life—outfits, confidence, shopping tips, and inspiration.',event:'Saturday · 10:30 AM · Personal style coffee chat',post:'Ivy: “What clothing item always makes you feel confident?”',tag:'Style'},
+      MeetMe:{side:'LadyPal',hint:'Friendship and local events',description:'Create low-pressure plans with women nearby, including lunches, walks, hobbies, and outings.',event:'Sunday · 1:00 PM · Museum afternoon',post:'Tara: “Would anyone like to start a monthly lunch group?”',tag:'Activities'}
+    };
+    const gal = ['GirlTalk','SchoolMe','CatFight','StyleSwap','MeetUp'];
+    const lady = ['EarPal','Businessy','HotTakes','FashionUp','MeetMe'];
+    const home = document.getElementById('home'), view = document.getElementById('community-view');
+    function addLeaves(list, target){document.getElementById(target).innerHTML=list.map(name=>`<button class="leaf" data-name="${name}">${name}<small>${communities[name].hint}</small></button>`).join('')}
+    function openCommunity(name){const c=communities[name];home.hidden=true;view.hidden=false;view.innerHTML=`<button class="back" type="button">← Back to SisterClub</button><article class="community"><span class="tag">${c.side} · ${c.tag}</span><h2>${name}</h2><p>${c.description}</p><div class="items"><section class="item"><h3>Upcoming circle</h3><p>${c.event}</p></section><section class="item"><h3>From the community</h3><p>${c.post}</p></section></div><button class="join" type="button">Join this community</button></article>`;view.querySelector('.back').onclick=closeCommunity;view.querySelector('.join').onclick=()=>alert(`You joined ${name}! This prototype keeps the action in your browser.`);window.scrollTo({top:0,behavior:'smooth'})}
+    function closeCommunity(){view.hidden=true;home.hidden=false;window.scrollTo({top:0,behavior:'smooth'})}
+    addLeaves(gal,'gal-leaves');addLeaves(lady,'lady-leaves');document.addEventListener('click',event=>{const button=event.target.closest('[data-name]');if(button)openCommunity(button.dataset.name)});
+  </script>
+</body>
+</html>
